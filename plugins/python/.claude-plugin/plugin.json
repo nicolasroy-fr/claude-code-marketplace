@@ -1,6 +1,6 @@
 {
   "name": "python",
-  "description": "Python development skills (pytest test generation, docstring agent)",
-  "version": "0.1.0",
+  "description": "Python development skills (pytest test generation, docstring agent, ruff format hook)",
+  "version": "0.2.0",
   "author": { "name": "Nicolas" }
 }
