@@ -15,7 +15,7 @@
     {
       "name": "dev",
       "source": "./plugins/dev",
-      "description": "Development workflow skills for GitHub and GitLab (code review, PR/MR descriptions, plan council) with the official GitHub and GitLab MCP servers"
+      "description": "Development workflow skills for GitHub and GitLab (code review, clean code conventions, PR/MR descriptions, plan council) with the official GitHub and GitLab MCP servers"
     },
     {
       "name": "python",

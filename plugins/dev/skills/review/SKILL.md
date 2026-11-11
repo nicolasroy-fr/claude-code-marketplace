@@ -77,7 +77,9 @@ user one short question, or list it under "Non vérifié".
 
 ### 4. Load the checks
 
-1. Always read `references/checklist.md`.
+1. Always read `references/checklist.md`, and load the `dev:clean-code` skill
+   with the Skill tool (language-agnostic clean code conventions). This is
+   mandatory: its rules are part of the review.
 2. Detect the languages from the changed file extensions and read the matching
    file in `references/languages/`:
 
