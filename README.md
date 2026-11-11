@@ -15,6 +15,7 @@ Skills are grouped by theme, one plugin per theme under `plugins/<theme>/`.
 | `react` | `react-hook` | Generates a custom React hook folder (TypeScript, Vitest + Testing Library `renderHook`) from templates. |
 | `dev` | `review` | Reviews local changes, a GitHub PR or a GitLab MR and reports prioritized findings in French; loads per-language checks from `references/languages/`. Saves each review to `reviews/` at the repo root. Never posts to a PR/MR without confirmation. |
 | `dev` | `mr-description` | Generates or updates a GitLab MR / GitHub PR title and description in French (fixed title pattern, Description/Contexte/Changements/Tests); platform detected from the URL or the git remote. Confirmations before any change. |
+| `dev` | `plan-council` | Builds a dev/feature plan with a council of 5 advisors (Architect, Minimalist, Skeptic, Tester, Maintainer) and a chairman, saved to `plans/` in French. Light mode by default (1 Haiku scout reads the code once, 5 Sonnet advisors, 1 Opus chairman); `--full` adds an anonymous peer-review round. |
 | `dev` | `github` (MCP server) | Official [GitHub MCP server](https://github.com/github/github-mcp-server) (remote, `https://api.githubcopilot.com/mcp/`). Needs `GITHUB_PERSONAL_ACCESS_TOKEN`. |
 | `dev` | `gitlab` (MCP server) | Official [GitLab MCP server](https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/) (remote, `/api/v4/mcp`). OAuth via `/mcp`; self-managed: set `GITLAB_MCP_URL`. |
 | `terraform` | `terraform-aws` | Creates an AWS Terraform deployment (flat root, one file per resource family, S3 native-lock backend, default tags, fmt + validate). |
@@ -87,6 +88,7 @@ MCP server in its settings.
 /git:commit [nature] [details to include]
 /dev:mr-description [MR/PR URL | number]
 /dev:review [PR/MR URL | number | branch | --staged]
+/dev:plan-council <feature | ticket URL | file> [--full]
 ```
 
 ## Adding a skill
