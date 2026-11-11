@@ -1,0 +1,35 @@
+name: Validate plugins
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Validate marketplace and plugins
+        run: |
+          status=0
+          for target in . plugins/*/; do
+            echo "::group::claude plugin validate --strict $target"
+            claude plugin validate --strict "$target" || status=1
+            echo "::endgroup::"
+          done
+          exit $status
+
+      - name: Lint hook scripts
+        run: |
+          shopt -s nullglob
+          scripts=(plugins/*/hooks/*.sh)
+          [ ${#scripts[@]} -eq 0 ] || shellcheck "${scripts[@]}"
