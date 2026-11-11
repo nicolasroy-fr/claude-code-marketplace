@@ -3,6 +3,9 @@
   "owner": {
     "name": "Nicolas"
   },
+  "metadata": {
+    "description": "Nicolas's personal Claude Code plugins: git, dev workflow (review, PR/MR descriptions, plan council), Python, React and Terraform"
+  },
   "plugins": [
     {
       "name": "git",
@@ -12,12 +15,12 @@
     {
       "name": "dev",
       "source": "./plugins/dev",
-      "description": "Development workflow skills for GitHub and GitLab (code review, PR/MR descriptions) with the official GitHub and GitLab MCP servers"
+      "description": "Development workflow skills for GitHub and GitLab (code review, PR/MR descriptions, plan council) with the official GitHub and GitLab MCP servers"
     },
     {
       "name": "python",
       "source": "./plugins/python",
-      "description": "Python development skills (pytest test generation, docstring agent)"
+      "description": "Python development skills (pytest test generation, docstring agent, ruff format hook)"
     },
     {
       "name": "react",
@@ -27,7 +30,7 @@
     {
       "name": "terraform",
       "source": "./plugins/terraform",
-      "description": "Terraform infrastructure skills (AWS deployment scaffolding)"
+      "description": "Terraform infrastructure skills (AWS deployment scaffolding, terraform fmt hook)"
     }
   ]
 }
