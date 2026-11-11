@@ -1,0 +1,6 @@
+{
+  "name": "dev",
+  "description": "Development workflow skills for GitHub and GitLab (code review, PR/MR descriptions) with the official GitHub and GitLab MCP servers",
+  "version": "0.1.0",
+  "author": { "name": "Nicolas" }
+}

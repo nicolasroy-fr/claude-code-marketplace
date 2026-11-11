@@ -7,7 +7,12 @@
     {
       "name": "git",
       "source": "./plugins/git",
-      "description": "Git and GitLab workflow skills (commits, merge requests)"
+      "description": "Git workflow skills (commits)"
+    },
+    {
+      "name": "dev",
+      "source": "./plugins/dev",
+      "description": "Development workflow skills for GitHub and GitLab (code review, PR/MR descriptions) with the official GitHub and GitLab MCP servers"
     },
     {
       "name": "python",

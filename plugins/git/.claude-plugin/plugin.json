@@ -1,6 +1,6 @@
 {
   "name": "git",
-  "description": "Git and GitLab workflow skills (commits, merge requests)",
+  "description": "Git workflow skills (commits)",
   "version": "0.1.0",
   "author": { "name": "Nicolas" }
 }

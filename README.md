@@ -9,11 +9,14 @@ Skills are grouped by theme, one plugin per theme under `plugins/<theme>/`.
 | Plugin | Skill | Description |
 |---|---|---|
 | `git` | `commit` | Creates a git commit with an emoji and a structured message, always in English. |
-| `git` | `mr-description-gitlab` | Generates or updates a GitLab MR title and description in French (fixed title pattern, Description/Contexte/Changements/Tests), with confirmations before any change. |
 | `python` | `python-test-generator` | Generates pytest unit tests following strict conventions (`tests/` folder, `test__<function>__<case>` naming, with/when/then structure, attribute-by-attribute asserts). |
 | `python` | `python-docstring` (agent, Haiku) | Writes docstrings for functions, methods and classes in Google style (ruff pydocstyle, `convention = "google"`). |
 | `react` | `react-component` | Generates a single React component file (TypeScript, Tailwind) from templates. |
 | `react` | `react-hook` | Generates a custom React hook folder (TypeScript, Vitest + Testing Library `renderHook`) from templates. |
+| `dev` | `review` | Reviews local changes, a GitHub PR or a GitLab MR and reports prioritized findings in French; loads per-language checks from `references/languages/`. Saves each review to `reviews/` at the repo root. Never posts to a PR/MR without confirmation. |
+| `dev` | `mr-description` | Generates or updates a GitLab MR / GitHub PR title and description in French (fixed title pattern, Description/Contexte/Changements/Tests); platform detected from the URL or the git remote. Confirmations before any change. |
+| `dev` | `github` (MCP server) | Official [GitHub MCP server](https://github.com/github/github-mcp-server) (remote, `https://api.githubcopilot.com/mcp/`). Needs `GITHUB_PERSONAL_ACCESS_TOKEN`. |
+| `dev` | `gitlab` (MCP server) | Official [GitLab MCP server](https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/) (remote, `/api/v4/mcp`). OAuth via `/mcp`; self-managed: set `GITLAB_MCP_URL`. |
 | `terraform` | `terraform-aws` | Creates an AWS Terraform deployment (flat root, one file per resource family, S3 native-lock backend, default tags, fmt + validate). |
 
 ## Install
@@ -34,6 +37,7 @@ Then install the plugins you need:
 
 ```
 /plugin install git@nicolas-skills
+/plugin install dev@nicolas-skills
 /plugin install python@nicolas-skills
 /plugin install react@nicolas-skills
 /plugin install terraform@nicolas-skills
@@ -54,11 +58,35 @@ Or copy a single skill manually:
 cp -r plugins/git/skills/commit ~/.claude/skills/
 ```
 
+## MCP servers setup
+
+Both servers ship with the `dev` plugin.
+
+**GitHub**: create a [personal access token](https://github.com/settings/personal-access-tokens/new)
+(`repo` scope) and export it in the shell that launches Claude Code:
+
+```
+export GITHUB_PERSONAL_ACCESS_TOKEN=<token>
+```
+
+**GitLab**: authentication is OAuth, run `/mcp`, select
+`plugin:dev:gitlab` and approve in the browser. On GitLab.com nothing else is
+needed. For a self-managed instance, point the server at it before launching
+Claude Code:
+
+```
+export GITLAB_MCP_URL=https://<gitlab.example.com>/api/v4/mcp
+```
+
+The instance (or the top-level group on GitLab.com) must allow access to the
+MCP server in its settings.
+
 ## Usage
 
 ```
 /git:commit [nature] [details to include]
-/git:mr-description-gitlab [MR URL]
+/dev:mr-description [MR/PR URL | number]
+/dev:review [PR/MR URL | number | branch | --staged]
 ```
 
 ## Adding a skill
