@@ -10,6 +10,7 @@ Skills are grouped by theme, one plugin per theme under `plugins/<theme>/`.
 |---|---|---|
 | `git` | `commit` | Creates a git commit with an emoji and a structured message, always in English. |
 | `python` | `python-test-generator` | Generates pytest unit tests following strict conventions (`tests/` folder, `test__<function>__<case>` naming, with/when/then structure, attribute-by-attribute asserts). |
+| `python` | `sqlalchemy-query` | Writes SQLAlchemy 2.x queries as explicit `select`/`insert`/`update`/`delete` statements run with `session.execute` (no `session.query` / ORM entities), from `templates/queries.py`; typed read models, no commit in query functions. |
 | `python` | `python-docstring` (agent, Haiku) | Writes docstrings for functions, methods and classes in Google style (ruff pydocstyle, `convention = "google"`). |
 | `python` | `ruff-format` (hook) | After each `Write`/`Edit`, runs `ruff format` on the edited `.py`/`.pyi` file (uses the project's ruff config). Skipped if `ruff` or `jq` is not installed. |
 | `react` | `react-component` | Generates a single React component file (TypeScript, Tailwind) from templates. |

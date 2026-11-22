@@ -20,7 +20,7 @@
     {
       "name": "python",
       "source": "./plugins/python",
-      "description": "Python development skills (pytest test generation, docstring agent, ruff format hook)"
+      "description": "Python development skills (pytest test generation, SQLAlchemy session.execute queries, docstring agent, ruff format hook)"
     },
     {
       "name": "react",
